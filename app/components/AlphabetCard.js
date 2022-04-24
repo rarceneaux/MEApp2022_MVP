@@ -1,6 +1,5 @@
 import React from 'react';
 import { View, Text, StyleSheet, Image, SafeAreaView } from 'react-native';
-import { color } from 'react-native/Libraries/Components/View/ReactNativeStyleAttributes';
 
 
 function AlphabetCard({letter, image, word}) {
