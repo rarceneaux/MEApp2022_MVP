@@ -2,7 +2,7 @@ import React from 'react'
 import { StyleSheet, Text, View, ImageBackground, Image } from 'react-native'
 import AppButton from '../components/AppButton';
 
-function WelcomeScreen(props) {
+function WelcomeScreen({navigation}) {
   return (
 
 <ImageBackground
@@ -14,10 +14,13 @@ source={require('../assets/appandpagebackgroundimg.png')}
 
 <View style={styles.buttonsContainer}>
 
-<AppButton title="Login"/>
-<AppButton title="Register"/>
+<AppButton title="Login" onPress={() => navigation.navigate("Login")}      />
+<AppButton title="Register"  onPress={() => navigation.navigate("Register")}   />
 
 </View>
+
+
+
 </ImageBackground>
   )
 }
@@ -29,17 +32,15 @@ const styles = StyleSheet.create({
     alignItems:'flex-end',
     backgroundColor:'#098731'
   },
-  buttonsContainer: {
-    padding: 20,
-    width: '100%'
-  },
-
   logo: {
     height:190,
     width:175,
     position:'absolute',
     top: 80,
-    
+  },
+  buttonsContainer: {
+    padding: 20,
+    width: '100%'
   }
 })
 
