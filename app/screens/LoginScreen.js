@@ -20,6 +20,7 @@ function LoginScreen(props) {
  const [password, setPassword] = useState();
 
   return (
+    
    <Screen style={styles.container}>
 <Image style={styles.logo} source={require("../assets/MEAPP.png")}/>
 
