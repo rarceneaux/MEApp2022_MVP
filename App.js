@@ -10,7 +10,8 @@ import WelcomeScreen from './app/screens/WelcomeScreen';
 import AppButton from "./app/components/AppButton";
 import AlphabetCard from "./app/components/AlphabetCard";
 import AlphabetDetailsScreen from "./app/screens/AlphabetDetailsScreen";
-import AlphabetText from "./app/components/AlphabetText";
+import ActivityRugScreen from "./app/screens/ActivityRugScreen";
+import AlphabetLetter from "./app/components/AlphabetLetter";
 import Screen from "./app/components/Screen";
 import ChildInfoForm from "./app/components/ChildInfoForm";
 
@@ -20,6 +21,8 @@ import ChildPictureUploader from "./app/components/ChildPictureUploader";
 import { createStackNavigator } from "@react-navigation/stack";
 import { NavigationContainer } from "@react-navigation/native";
 import AuthNavigator from "./app/navigation/AuthNavigator";
+
+import UploadChildPhotoScreen from "./app/screens/UploadChildPhotoScreen";
 
 export default function App() {
 
@@ -43,12 +46,13 @@ export default function App() {
 //     console.log('Error Reading an Image', error)
 //   }
 // };
+{/* <NavigationContainer>
+  <AuthNavigator/>
+</NavigationContainer> */}
 
 
 return (
-<NavigationContainer>
-  <AuthNavigator/>
-</NavigationContainer>
+<UploadChildPhotoScreen/>
   );
 }
 

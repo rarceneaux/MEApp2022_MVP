@@ -2,13 +2,14 @@ import React, {useState, useRef} from 'react';
 import { StyleSheet, Image, ScrollView, Text } from 'react-native';
 import AppButton from '../components/AppButton';
 import ChildInfoForm from '../components/ChildInfoForm';
-import ChildPictureUploader from '../components/ChildPictureUploader';
+// import ChildPictureUploader from '../components/ChildPictureUploader';
 
 import { Formik } from 'formik';
 import * as Yup from 'yup';
 
 import Screen from '../components/Screen';
 import SubmitButton from '../components/SubmitButton';
+import ActivityRugScreen from './ActivityRugScreen';
 
 
 
@@ -16,26 +17,26 @@ import SubmitButton from '../components/SubmitButton';
 const validationSchema = Yup.object().shape({
   name: Yup.string().required().label("Child First Name"),
   email: Yup.string().required().email().label("Email"),
-  password: Yup.string().required().min(4).label("Password"),
-  images: Yup.array().min(1,"Please select at least one image.")
+  password: Yup.string().min(7, 'Password must be at least 7 characters ').label("Password").required()
+  // images: Yup.array().min(1,"Please select at least one image.")
 });
 
-function LoginScreen(props) {
+function LoginScreen({navigation}) {
 //  const [email, setEmail ] = useState();
 //  const [password, setPassword] = useState();
 
-const [imageUri, setImageUri] = useState();
+// const [imageUri, setImageUri] = useState();
 
 /////////////////////////////////////////////////////////////////////////
-const selectImage = async () => {
-  try { 
-    const result = await  ImagePicker.launchImageLibraryAsync();
-    if(!result.cancelled)
-    setImageUri(result.uri);
-  } catch (error) {
-    console.log('Error Reading an Image', error)
-  }
-};
+// const selectImage = async () => {
+//   try { 
+//     const result = await  ImagePicker.launchImageLibraryAsync();
+//     if(!result.cancelled)
+//     setImageUri(result.uri);
+//   } catch (error) {
+//     console.log('Error Reading an Image', error)
+//   }
+// };
 //////////////////////////////////////////////////////////////////////////
 ///useref hook
 
@@ -86,9 +87,9 @@ icon="email"
   secureTextEntry
 />
 {touched.password && <Text style={{color: 'red'}}>{errors.password}</Text>}
-<ChildPictureUploader imageUri={imageUri} onChangeImage={uri => setImageUri(uri)}/>
-{touched.images && <Text style={{color: 'red'}}>{errors.images}</Text>}
-<SubmitButton title="Register"/>
+{/* <ChildPictureUploader imageUri={imageUri} onChangeImage={uri => setImageUri(uri)}/> */}
+{/* {touched.images && <Text style={{color: 'red'}}>{errors.images}</Text>} */}
+<SubmitButton  onPress={ActivityRugScreen} title="Register"/>
 </>
 )}
 </Formik>

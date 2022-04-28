@@ -4,10 +4,10 @@ import { Text } from 'react-native'
 
 import styles from './styles';
 
-function AlphabetText({children}) {
+function AlphabetLetter({children}) {
   return (
   <Text style={styles.text}>{children}</Text>
   );
 }
 
-export default AlphabetText;
+export default AlphabetLetter;
