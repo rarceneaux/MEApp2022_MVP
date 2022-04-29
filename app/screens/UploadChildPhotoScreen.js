@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import { StyleSheet, Image, ScrollView, Text, View } from 'react-native';
+import { StyleSheet, Image, ScrollView, Text, View, SafeAreaView } from 'react-native';
 import ChildPictureUploader from '../components/ChildPictureUploader';
-
+import ChildTakePicture from '../components/ChildTakePicture';
 
 function UploadChildPhotoScreen(props) {
 
@@ -19,9 +19,12 @@ const selectImage = async () => {
 };
 
   return (
+    <SafeAreaView>
    <View>
      <ChildPictureUploader imageUri={imageUri} onChangeImage={uri => setImageUri(uri)}/>
+     <ChildTakePicture/>
    </View>
+   </SafeAreaView>
   );
 }
 

@@ -13,6 +13,10 @@ import ActivityRugScreen from './ActivityRugScreen';
 
 
 
+// import { NavigationContainer } from '@react-navigation/native';
+// import { createStackNavigator } from '@react-navigation/stack';
+
+// const Stack = createStackNavigator();
 
 const validationSchema = Yup.object().shape({
   name: Yup.string().required().label("Child First Name"),
@@ -21,7 +25,7 @@ const validationSchema = Yup.object().shape({
   // images: Yup.array().min(1,"Please select at least one image.")
 });
 
-function LoginScreen({navigation}) {
+function LoginScreen() {
 //  const [email, setEmail ] = useState();
 //  const [password, setPassword] = useState();
 
@@ -46,7 +50,7 @@ const scrollView = useRef();
     <ScrollView  ref={scrollView}vertical onContentSizeChange={()=> scrollView.current.scrollToEnd() }> 
    <Screen style={styles.container}>
 <Formik
-initialValues={{name:'',email: '', password:'', images:[]}}
+initialValues={{name:'',email: '', password:''}}
 onSubmit={values => console.log(values)}
 validationSchema={validationSchema}
 >
@@ -89,7 +93,7 @@ icon="email"
 {touched.password && <Text style={{color: 'red'}}>{errors.password}</Text>}
 {/* <ChildPictureUploader imageUri={imageUri} onChangeImage={uri => setImageUri(uri)}/> */}
 {/* {touched.images && <Text style={{color: 'red'}}>{errors.images}</Text>} */}
-<SubmitButton  onPress={ActivityRugScreen} title="Register"/>
+<SubmitButton  title="Register" onPress={() => navigation.navigate('Activity Rug')}  />
 </>
 )}
 </Formik>
