@@ -1,0 +1,17 @@
+{
+  "a1": {
+    "alphabet": "A",
+    "word": "Apple",
+    "imgUrl": "https://firebasestorage.googleapis.com/v0/b/meapp2022-38855.appspot.com/o/apple.jpg?alt=media&token=8d4186ac-739e-4b2c-8d4e-623da1597923"
+  },
+  "b2": {
+    "alphabet": "B",
+    "word": "Ball",
+    "imgUrl": "https://firebasestorage.googleapis.com/v0/b/meapp2022-38855.appspot.com/o/apple.jpg?alt=media&token=8d4186ac-739e-4b2c-8d4e-623da1597923"
+  },
+  "c3": {
+    "alphabet": "C",
+    "word": "Cat",
+    "imgUrl": "https://firebasestorage.googleapis.com/v0/b/meapp2022-38855.appspot.com/o/apple.jpg?alt=media&token=8d4186ac-739e-4b2c-8d4e-623da1597923"
+  }
+}

@@ -1,10 +1,12 @@
 import React, {useEffect} from 'react';
-import { StyleSheet, View , Image, TouchableWithoutFeedback, Alert } from 'react-native'
+import { StyleSheet, View , Image, TouchableWithoutFeedback, Alert, Text  } from 'react-native'
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import * as ImagePicker from 'expo-image-picker';
+import UploadPhotoButton from '../components/UploadPhotoButton';
 
 
-function ChildPictureUploader({imageUri, onChangeImage}) {
+
+function ChildPictureUploader({imageUri, onChangeImage, navigation}) {
 
   useEffect(() => {
     requestPermission();
@@ -40,8 +42,13 @@ function ChildPictureUploader({imageUri, onChangeImage}) {
   return (
     <TouchableWithoutFeedback onPress={handlePress}>
     <View style={styles.container}>
-      {!imageUri && <MaterialCommunityIcons name="camera" size={40} color={"black"}/>}
+    <Text>Tap camera to select a photo </Text>
+    <Text>To change your photo tap it </Text>
+    <>
+    </>
+          {!imageUri && <MaterialCommunityIcons name="camera" size={150} color={"#098731"}/>}
       {imageUri && <Image source={{uri: imageUri}} style={styles.image}/>}
+      <UploadPhotoButton title="Add Photo" onPress={()=> console.log('Pix Added')}></UploadPhotoButton>
     </View>
      </TouchableWithoutFeedback>
   );
@@ -49,17 +56,19 @@ function ChildPictureUploader({imageUri, onChangeImage}) {
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: 'lightgray',
+    flex:1,
+    backgroundColor: 'white',
     borderRadius: 15,
     justifyContent: 'center',
     alignItems:'center',
-    height: 100,
-    width: 100,
+    height:450,
+    width: 450,
     overflow: 'hidden',
   },
   image:{
-    width:'100%',
-    height:'100%'
+    width:300,
+    height:300,
+    borderRadius: 400/2,
   }
 })
 

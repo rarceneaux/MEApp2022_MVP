@@ -3,7 +3,7 @@ import { View, StyleSheet, Text, TouchableHighlight } from 'react-native';
 
 
 
-function AppButton({title, onPress}) {
+function ActivityRugButtons({title, onPress}) {
   return (
     <TouchableHighlight style={styles.button} onPress={onPress}>
     <Text style={styles.text}>{title}</Text>
@@ -19,14 +19,15 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     padding:15,
     width:'100%',
-    marginVertical: 10,
+    height:100,
+    marginVertical: 50,
   },
   text: {
     color: 'white',
-    fontSize: 18,
+    fontSize: 35,
     textTransform: 'uppercase',
     fontWeight: "bold"
   }
 })
 
-export default AppButton;
+export default ActivityRugButtons;

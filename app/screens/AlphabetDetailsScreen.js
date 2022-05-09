@@ -3,7 +3,7 @@ import { View, StyleSheet, Image, Text, SafeAreaView } from 'react-native'
 import AlphabetCard from '../components/AlphabetCard';
 import AlphabetLetter from '../components/AlphabetLetter';
 import { MaterialCommunityIcons} from '@expo/vector-icons';
-import  alphabetsData  from '../helpers/data/alphabetsData';
+// import  alphabetsData  from '../helpers/data/alphabetsData';
 
 
 

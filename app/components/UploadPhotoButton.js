@@ -3,7 +3,7 @@ import { View, StyleSheet, Text, TouchableHighlight } from 'react-native';
 
 
 
-function AppButton({title, onPress}) {
+function UploadPhotoButton({title, onPress, navagation}) {
   return (
     <TouchableHighlight style={styles.button} onPress={onPress}>
     <Text style={styles.text}>{title}</Text>
@@ -18,15 +18,16 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     padding:15,
-    width:'100%',
-    marginVertical: 10,
+    width:'60%',
+    height:100,
+    marginVertical: 50,
   },
   text: {
     color: 'white',
-    fontSize: 18,
+    fontSize: 35,
     textTransform: 'uppercase',
     fontWeight: "bold"
   }
 })
 
-export default AppButton;
+export default UploadPhotoButton;

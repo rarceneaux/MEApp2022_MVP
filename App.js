@@ -21,7 +21,6 @@ import ChildPictureUploader from "./app/components/ChildPictureUploader";
 import { createStackNavigator } from "@react-navigation/stack";
 import { NavigationContainer } from "@react-navigation/native";
 import AuthNavigator from "./app/navigation/AuthNavigator";
-
 import UploadChildPhotoScreen from "./app/screens/UploadChildPhotoScreen";
 
 export default function App() {
@@ -52,7 +51,9 @@ export default function App() {
 
 
 return (
-<UploadChildPhotoScreen/>
+  <NavigationContainer>
+  <AuthNavigator/>
+</NavigationContainer>
   );
 }
 

@@ -1,5 +1,5 @@
 import React, {useState, useRef} from 'react';
-import { StyleSheet, Image, ScrollView, Text } from 'react-native';
+import { StyleSheet, Image, ScrollView, Text, KeyboardAvoidingView } from 'react-native';
 import AppButton from '../components/AppButton';
 import ChildInfoForm from '../components/ChildInfoForm';
 // import ChildPictureUploader from '../components/ChildPictureUploader';
@@ -25,7 +25,7 @@ const validationSchema = Yup.object().shape({
   // images: Yup.array().min(1,"Please select at least one image.")
 });
 
-function LoginScreen() {
+function LoginScreen({navigation}) {
 //  const [email, setEmail ] = useState();
 //  const [password, setPassword] = useState();
 
@@ -45,9 +45,11 @@ function LoginScreen() {
 ///useref hook
 
 const scrollView = useRef();
+const keyboardVerticalOffset = Platform.OS === 'ios' ? 0 : 0
 
   return (
     <ScrollView  ref={scrollView}vertical onContentSizeChange={()=> scrollView.current.scrollToEnd() }> 
+    <KeyboardAvoidingView behavior='position' keyboardVerticalOffset={keyboardVerticalOffset}>
    <Screen style={styles.container}>
 <Formik
 initialValues={{name:'',email: '', password:''}}
@@ -68,6 +70,7 @@ icon="account-child"
   onBlur={()=> setFieldTouched("name") }
   onChangeText={handleChange("name")}
   textContentType="name"
+  placeholderTextColor="white"
 />
 {touched.name && <Text style={{color: 'red'}}>{errors.name}</Text>}
 <ChildInfoForm
@@ -79,6 +82,7 @@ icon="email"
   onBlur={()=> setFieldTouched("email") }
   onChangeText={handleChange("email")}
   textContentType="emailAddress"
+  placeholderTextColor="white"
 />
 {touched.email && <Text style={{color: 'red'}}>{errors.email}</Text>}
 <ChildInfoForm
@@ -89,15 +93,17 @@ icon="email"
   placeholder="Password"
   textContentType="password"
   secureTextEntry
+  placeholderTextColor="white"
 />
 {touched.password && <Text style={{color: 'red'}}>{errors.password}</Text>}
 {/* <ChildPictureUploader imageUri={imageUri} onChangeImage={uri => setImageUri(uri)}/> */}
 {/* {touched.images && <Text style={{color: 'red'}}>{errors.images}</Text>} */}
-<SubmitButton  title="Register" onPress={() => navigation.navigate('Activity Rug')}  />
+<AppButton  title="Submit" onPress={() => navigation.navigate('Photo Upload')}  />
 </>
 )}
 </Formik>
 </Screen>
+</KeyboardAvoidingView>
 </ScrollView>
   );
 }
