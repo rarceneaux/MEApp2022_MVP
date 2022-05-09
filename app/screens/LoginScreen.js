@@ -1,5 +1,5 @@
-import React ,{useState} from 'react';
-import { StyleSheet, Image, Text } from 'react-native';
+import React  from 'react';
+import { StyleSheet, Image, Text, KeyboardAvoidingView } from 'react-native';
 import AppButton from '../components/AppButton';
 import ChildInfoForm from '../components/ChildInfoForm';
 
@@ -13,16 +13,17 @@ import SubmitButton from '../components/SubmitButton';
 const validationSchema = Yup.object().shape({
   email: Yup.string().required().email().label("Email"),
   password: Yup.string().required().min(4).label("Password")
-});
+}); 
 
-function LoginScreen(props) {
- const [email, setEmail ] = useState();
- const [password, setPassword] = useState();
+function LoginScreen({ navigation}) {
+//  const [email, setEmail ] = useState();
+//  const [password, setPassword] = useState();
+const keyboardVerticalOffset = Platform.OS === 'ios' ? 0 : 0
 
   return (
     
-   <Screen style={styles.container}>
-<Image style={styles.logo} source={require("../assets/MEAPP.png")}/>
+   <Screen style={styles.container}><Image style={styles.logo} source={require("../assets/MEAPP.png")}/>
+    <KeyboardAvoidingView behavior='position' keyboardVerticalOffset={keyboardVerticalOffset}>
 
 <Formik
 initialValues={{email: '', password:''}}
@@ -42,6 +43,7 @@ icon="email"
   onBlur={()=> setFieldTouched("email") }
   onChangeText={handleChange("email")}
   textContentType="emailAddress"
+  placeholderTextColor="white"
 />
 {touched.email && <Text style={{color: 'red'}}>{errors.email}</Text>}
 <ChildInfoForm
@@ -52,12 +54,15 @@ icon="email"
   placeholder="Password"
   textContentType="password"
   secureTextEntry
+  placeholderTextColor="white"
+  font
 />
 {touched.password && <Text style={{color: 'red'}}>{errors.password}</Text>}
-<SubmitButton title="Login"/>
+<AppButton title="Submit" onPress={() => navigation.navigate('Activity Rug')} />
 </>
 )}
 </Formik>
+</KeyboardAvoidingView>
 </Screen>
   );
 }

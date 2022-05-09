@@ -22,7 +22,7 @@ const styles = StyleSheet.create({
   },
   textInput: {
     fontSize: 18,
-    color:"#0c0c0c"
+    color:"black"
   },
   icon: {
     margin: 10,
